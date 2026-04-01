@@ -1402,6 +1402,43 @@
       .stat-number { font-size: 2rem; }
       .cta-section { padding: 80px 24px; }
     }
+    /* ——— Marquee Strip ——— */
+.marquee-strip {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+  background: var(--surface);
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  gap: 32px;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.marquee-track span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-dim);
+}
+
+.marquee-dot {
+  color: var(--accent) !important;
+  font-size: 1rem !important;
+}
+
+.marquee-strip:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
   </style>
 </head>
 <body>
@@ -1556,7 +1593,40 @@
 
       </div>
     </section>
-
+<!-- ====== MARQUEE TICKER ====== -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span>Fargo's Web Studio</span>
+    <span class="marquee-dot">·</span>
+    <span>$600 Flat Rate</span>
+    <span class="marquee-dot">·</span>
+    <span>No Monthly Fees</span>
+    <span class="marquee-dot">·</span>
+    <span>Mobile-First Design</span>
+    <span class="marquee-dot">·</span>
+    <span>Google Maps Ready</span>
+    <span class="marquee-dot">·</span>
+    <span>Delivered in 7 Days</span>
+    <span class="marquee-dot">·</span>
+    <span>You Own Everything</span>
+    <span class="marquee-dot">·</span>
+    <!-- duplicate for seamless loop -->
+    <span>Fargo's Web Studio</span>
+    <span class="marquee-dot">·</span>
+    <span>$600 Flat Rate</span>
+    <span class="marquee-dot">·</span>
+    <span>No Monthly Fees</span>
+    <span class="marquee-dot">·</span>
+    <span>Mobile-First Design</span>
+    <span class="marquee-dot">·</span>
+    <span>Google Maps Ready</span>
+    <span class="marquee-dot">·</span>
+    <span>Delivered in 7 Days</span>
+    <span class="marquee-dot">·</span>
+    <span>You Own Everything</span>
+    <span class="marquee-dot">·</span>
+  </div>
+</div>
     <!-- Stats -->
     <div class="stats-ticker">
       <div class="stats-inner">
@@ -1932,9 +2002,7 @@
         One flat payment. One week. One massive upgrade to how Fargo finds you.
       </p>
       <div class="cta-actions reveal">
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?success=true" class="contact-form">
-          <input type="hidden" name="form-name" value="contact">
-          <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <form action="https://formspree.io/f/xxxxxxxx" method="POST" class="contact-form">
           <div class="form-group">
             <input type="text" name="name" placeholder="Your Name" required>
           </div>
@@ -1957,6 +2025,7 @@
           <p style="font-size:0.75rem; color:var(--text-dim); margin-top:12px;">
             Based in Fargo, ND · Response within 24 hours
           </p>
+          <input type="hidden" name="_next" value="https://yoursite.vercel.app/?success=true">
         </form>
       </div>
     </section>
